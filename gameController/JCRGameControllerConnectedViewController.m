@@ -61,4 +61,10 @@
     }
 }
 
+#pragma mark - Private functions
+
+- (void)__logMessage:(NSString*)message {
+    [[self textView] setText:[NSString stringWithFormat:@"%@\n%@", [[self textView] text], message]];
+}
+
 @end
