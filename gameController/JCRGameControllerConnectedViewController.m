@@ -10,6 +10,9 @@
 
 @interface JCRGameControllerConnectedViewController ()
 
+@property (nonatomic) GCGamepad *gamepad;
+@property (nonatomic) GCExtendedGamepad *extendedGamepad;
+
 @end
 
 @implementation JCRGameControllerConnectedViewController
@@ -34,6 +37,22 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Public properties
+
+- (void)setController:(GCController *)controller {
+    if ([controller gamepad]) {
+        [self setGamepad:[controller gamepad]];
+        [[self gamepad] setValueChangedHandler:^(GCGamepad *gamepad, GCControllerElement *element) {
+            
+        }];
+    } else if ([controller extendedGamepad]) {
+        [self setExtendedGamepad:[controller extendedGamepad]];
+        [[self extendedGamepad] setValueChangedHandler:^(GCExtendedGamepad *gamepad, GCControllerElement *element) {
+            
+        }];
+    }
 }
 
 @end
