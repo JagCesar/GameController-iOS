@@ -7,8 +7,11 @@
 //
 
 #import "JCRWelcomeViewController.h"
+#import "JCRGameControllerConnectedViewController.h"
 
 @interface JCRWelcomeViewController ()
+
+@property (nonatomic,strong) JCRGameControllerConnectedViewController *gameControllerConnectedViewController;
 
 @end
 
@@ -28,6 +31,16 @@
         [instructionsLabel setFrame:[[self view] bounds]];
         [instructionsLabel setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
         [[self view] addSubview:instructionsLabel];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(__gameControllerConnected:)
+                                                     name:GCControllerDidConnectNotification
+                                                   object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(__gameControllerDisconnected:)
+                                                     name:GCControllerDidDisconnectNotification
+                                                   object:nil];
     }
     return self;
 }
@@ -42,6 +55,25 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Private functions
+
+- (void)__gameControllerConnected:(NSNotification*)notification {
+    [self setGameControllerConnectedViewController:[JCRGameControllerConnectedViewController new]];
+    [self presentViewController:[self gameControllerConnectedViewController]
+                       animated:YES
+                     completion:^{
+                         ;
+                     }];
+}
+
+- (void)__gameControllerDisconnected:(NSNotification*)notification {
+    [[self gameControllerConnectedViewController] dismissViewControllerAnimated:YES
+                                                                     completion:^{
+                                                                         ;
+                                                                     }];
+    [self setGameControllerConnectedViewController:nil];
 }
 
 @end

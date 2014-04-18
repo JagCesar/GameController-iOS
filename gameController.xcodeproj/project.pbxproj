@@ -22,6 +22,7 @@
 		DB7A0FBE1901D04A00D8901B /* gameControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7A0FBD1901D04A00D8901B /* gameControllerTests.m */; };
 		DB7A0FCA1901D16900D8901B /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB7A0FC91901D16900D8901B /* GameController.framework */; };
 		DB7A0FCE1901D19D00D8901B /* JCRWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7A0FCD1901D19D00D8901B /* JCRWelcomeViewController.m */; };
+		DB7A0FD11901D77700D8901B /* JCRGameControllerConnectedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7A0FD01901D77700D8901B /* JCRGameControllerConnectedViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,8 @@
 		DB7A0FC91901D16900D8901B /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
 		DB7A0FCC1901D19D00D8901B /* JCRWelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCRWelcomeViewController.h; sourceTree = "<group>"; };
 		DB7A0FCD1901D19D00D8901B /* JCRWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCRWelcomeViewController.m; sourceTree = "<group>"; };
+		DB7A0FCF1901D77700D8901B /* JCRGameControllerConnectedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCRGameControllerConnectedViewController.h; sourceTree = "<group>"; };
+		DB7A0FD01901D77700D8901B /* JCRGameControllerConnectedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCRGameControllerConnectedViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +167,8 @@
 			children = (
 				DB7A0FCC1901D19D00D8901B /* JCRWelcomeViewController.h */,
 				DB7A0FCD1901D19D00D8901B /* JCRWelcomeViewController.m */,
+				DB7A0FCF1901D77700D8901B /* JCRGameControllerConnectedViewController.h */,
+				DB7A0FD01901D77700D8901B /* JCRGameControllerConnectedViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -269,6 +274,7 @@
 				DB7A0F9C1901D04A00D8901B /* main.m in Sources */,
 				DB7A0FA91901D04A00D8901B /* JCRViewController.m in Sources */,
 				DB7A0FCE1901D19D00D8901B /* JCRWelcomeViewController.m in Sources */,
+				DB7A0FD11901D77700D8901B /* JCRGameControllerConnectedViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
