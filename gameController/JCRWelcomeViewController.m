@@ -22,7 +22,7 @@
         [[self view] setBackgroundColor:[UIColor whiteColor]];
         
         UILabel *instructionsLabel = [UILabel new];
-        [instructionsLabel setText:@"Put your iPhone in your Controller"];
+        [instructionsLabel setText:@"Put your iPhone in your Game Controller"];
         [instructionsLabel setTextAlignment:NSTextAlignmentCenter];
         [instructionsLabel setNumberOfLines:0];
         [instructionsLabel setFrame:[[self view] bounds]];
@@ -43,16 +43,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
