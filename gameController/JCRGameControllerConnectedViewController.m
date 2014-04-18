@@ -12,6 +12,7 @@
 
 @property (nonatomic) GCGamepad *gamepad;
 @property (nonatomic) GCExtendedGamepad *extendedGamepad;
+@property (nonatomic) UITextView *textView;
 
 @end
 
@@ -23,6 +24,11 @@
     if (self) {
         // Custom initialization
         [[self view] setBackgroundColor:[UIColor blueColor]];
+        
+        [self setTextView:[UITextView new]];
+        [[self textView] setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
+        [[self textView] setFrame:[[self view] bounds]];
+        [[self view] addSubview:[self textView]];
     }
     return self;
 }
