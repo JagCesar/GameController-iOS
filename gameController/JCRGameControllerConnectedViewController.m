@@ -50,6 +50,13 @@
 
 - (void)setController:(GCController *)controller {
     [self __logMessage:@"Controller set"];
+    
+    __weak typeof(self) weakSelf = self;
+    [[self controller] setControllerPausedHandler:^(GCController *controller) {
+        __strong typeof(self) strongSelf = weakSelf;
+        [strongSelf __logMessage:@"Pause!"];
+    }];
+    
     if ([controller extendedGamepad]) {
         [self __logMessage:@"It was an extended gamepad"];
         [self setExtendedGamepad:[controller extendedGamepad]];
