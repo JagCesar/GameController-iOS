@@ -66,7 +66,7 @@
 - (void)__logMessage:(NSString*)message {
     dispatch_async(dispatch_get_main_queue(), ^{
         [[self textView] setText:[NSString stringWithFormat:@"%@\n%@", [[self textView] text], message]];
-        [[self textView] scrollRangeToVisible:NSMakeRange([[[self textView] text] length], 0)];
+        [[self textView] scrollRangeToVisible:NSMakeRange([[[self textView] text] length]-1, 1)];
     });
 }
 
@@ -77,6 +77,10 @@
     GCControllerButtonInput *b = [[self extendedGamepad] buttonB];
     GCControllerButtonInput *x = [[self extendedGamepad] buttonX];
     GCControllerButtonInput *y = [[self extendedGamepad] buttonY];
+    GCControllerButtonInput *leftShoulder = [[self extendedGamepad] leftShoulder];
+    GCControllerButtonInput *leftTrigger = [[self extendedGamepad] leftTrigger];
+    GCControllerButtonInput *rightShoulder = [[self extendedGamepad] rightShoulder];
+    GCControllerButtonInput *rightTrigger = [[self extendedGamepad] rightTrigger];
     
     __weak typeof(self) weakSelf = self;
     [a setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
@@ -94,6 +98,22 @@
     [y setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
         __strong typeof(self) strongSelf = weakSelf;
         [strongSelf __logMessage:[NSString stringWithFormat:@"Y - %f", value]];
+    }];
+    [leftShoulder setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
+        __strong typeof(self) strongSelf = weakSelf;
+        [strongSelf __logMessage:[NSString stringWithFormat:@"left shoulder - %f", value]];
+    }];
+    [leftTrigger setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
+        __strong typeof(self) strongSelf = weakSelf;
+        [strongSelf __logMessage:[NSString stringWithFormat:@"left trigger - %f", value]];
+    }];
+    [rightShoulder setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
+        __strong typeof(self) strongSelf = weakSelf;
+        [strongSelf __logMessage:[NSString stringWithFormat:@"right shoulder - %f", value]];
+    }];
+    [rightTrigger setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
+        __strong typeof(self) strongSelf = weakSelf;
+        [strongSelf __logMessage:[NSString stringWithFormat:@"right trigger - %f", value]];
     }];
 }
 
