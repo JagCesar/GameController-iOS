@@ -82,6 +82,8 @@
     GCControllerButtonInput *rightShoulder = [[self extendedGamepad] rightShoulder];
     GCControllerButtonInput *rightTrigger = [[self extendedGamepad] rightTrigger];
     
+    GCControllerDirectionPad *dPad = [[self extendedGamepad] dpad];
+    
     __weak typeof(self) weakSelf = self;
     [a setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
         __strong typeof(self) strongSelf = weakSelf;
@@ -114,6 +116,12 @@
     [rightTrigger setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
         __strong typeof(self) strongSelf = weakSelf;
         [strongSelf __logMessage:[NSString stringWithFormat:@"right trigger - %f", value]];
+    }];
+    
+    // DPad and sticks
+    [dPad setValueChangedHandler:^(GCControllerDirectionPad *dpad, float xValue, float yValue){
+        __strong typeof(self) strongSelf = weakSelf;
+        [strongSelf __logMessage:[NSString stringWithFormat:@"X: %f | Y: %f", xValue, yValue]];
     }];
 }
 
