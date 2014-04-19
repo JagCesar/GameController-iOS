@@ -74,14 +74,26 @@
     [self __logMessage:@"Setup extended gamepad"];
     
     GCControllerButtonInput *a = [[self extendedGamepad] buttonA];
+    GCControllerButtonInput *b = [[self extendedGamepad] buttonB];
+    GCControllerButtonInput *x = [[self extendedGamepad] buttonX];
+    GCControllerButtonInput *y = [[self extendedGamepad] buttonY];
+    
     __weak typeof(self) weakSelf = self;
     [a setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
         __strong typeof(self) strongSelf = weakSelf;
-        if (value > 0) {
-            [strongSelf __logMessage:[NSString stringWithFormat:@"A pressed - %f", value]];
-        } else {
-            [strongSelf __logMessage:[NSString stringWithFormat:@"A released - %f", value]];
-        }
+        [strongSelf __logMessage:[NSString stringWithFormat:@"A - %f", value]];
+    }];
+    [b setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
+        __strong typeof(self) strongSelf = weakSelf;
+        [strongSelf __logMessage:[NSString stringWithFormat:@"B - %f", value]];
+    }];
+    [x setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
+        __strong typeof(self) strongSelf = weakSelf;
+        [strongSelf __logMessage:[NSString stringWithFormat:@"X - %f", value]];
+    }];
+    [y setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
+        __strong typeof(self) strongSelf = weakSelf;
+        [strongSelf __logMessage:[NSString stringWithFormat:@"Y - %f", value]];
     }];
 }
 
