@@ -83,6 +83,8 @@
     GCControllerButtonInput *rightTrigger = [[self extendedGamepad] rightTrigger];
     
     GCControllerDirectionPad *dPad = [[self extendedGamepad] dpad];
+    GCControllerDirectionPad *leftThumbstick = [[self extendedGamepad] leftThumbstick];
+    GCControllerDirectionPad *rightThumbstick = [[self extendedGamepad] rightThumbstick];
     
     __weak typeof(self) weakSelf = self;
     [a setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
@@ -120,6 +122,14 @@
     
     // DPad and sticks
     [dPad setValueChangedHandler:^(GCControllerDirectionPad *dpad, float xValue, float yValue){
+        __strong typeof(self) strongSelf = weakSelf;
+        [strongSelf __logMessage:[NSString stringWithFormat:@"X: %f | Y: %f", xValue, yValue]];
+    }];
+    [leftThumbstick setValueChangedHandler:^(GCControllerDirectionPad *dpad, float xValue, float yValue){
+        __strong typeof(self) strongSelf = weakSelf;
+        [strongSelf __logMessage:[NSString stringWithFormat:@"X: %f | Y: %f", xValue, yValue]];
+    }];
+    [rightThumbstick setValueChangedHandler:^(GCControllerDirectionPad *dpad, float xValue, float yValue){
         __strong typeof(self) strongSelf = weakSelf;
         [strongSelf __logMessage:[NSString stringWithFormat:@"X: %f | Y: %f", xValue, yValue]];
     }];
