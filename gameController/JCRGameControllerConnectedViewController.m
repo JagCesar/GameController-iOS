@@ -29,6 +29,7 @@
         [[self textView] setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
         [[self textView] setFrame:[[self view] bounds]];
         [[self view] addSubview:[self textView]];
+        [self __logMessage:@"TextView created"];
     }
     return self;
 }
@@ -48,23 +49,55 @@
 #pragma mark - Public properties
 
 - (void)setController:(GCController *)controller {
-    if ([controller gamepad]) {
-        [self setGamepad:[controller gamepad]];
-        [[self gamepad] setValueChangedHandler:^(GCGamepad *gamepad, GCControllerElement *element) {
-            
-        }];
-    } else if ([controller extendedGamepad]) {
+    [self __logMessage:@"Controller set"];
+    if ([controller extendedGamepad]) {
+        [self __logMessage:@"It was an extended gamepad"];
         [self setExtendedGamepad:[controller extendedGamepad]];
-        [[self extendedGamepad] setValueChangedHandler:^(GCExtendedGamepad *gamepad, GCControllerElement *element) {
-            
-        }];
+        [self __setupExtendedGamepad];
+    } else if ([controller gamepad]) {
+        [self __logMessage:@"It was a gamepad"];
+        [self setGamepad:[controller gamepad]];
+        [self __setupGamepad];
     }
 }
 
 #pragma mark - Private functions
 
 - (void)__logMessage:(NSString*)message {
-    [[self textView] setText:[NSString stringWithFormat:@"%@\n%@", [[self textView] text], message]];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[self textView] setText:[NSString stringWithFormat:@"%@\n%@", [[self textView] text], message]];
+        [[self textView] scrollRangeToVisible:NSMakeRange([[[self textView] text] length], 0)];
+    });
+}
+
+- (void)__setupExtendedGamepad {
+    [self __logMessage:@"Setup extended gamepad"];
+    
+    GCControllerButtonInput *a = [[self extendedGamepad] buttonA];
+    __weak typeof(self) weakSelf = self;
+    [a setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
+        __strong typeof(self) strongSelf = weakSelf;
+        if (value > 0) {
+            [strongSelf __logMessage:[NSString stringWithFormat:@"A pressed - %f", value]];
+        } else {
+            [strongSelf __logMessage:[NSString stringWithFormat:@"A released - %f", value]];
+        }
+    }];
+}
+
+- (void)__setupGamepad {
+    [self __logMessage:@"Setup extended gamepad"];
+    
+    GCControllerButtonInput *a = [[self extendedGamepad] buttonA];
+    __weak typeof(self) weakSelf = self;
+    [a setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
+        __strong typeof(self) strongSelf = weakSelf;
+        if (value > 0) {
+            [strongSelf __logMessage:@"A pressed"];
+        } else {
+            [strongSelf __logMessage:@"A released"];
+        }
+    }];
 }
 
 @end
