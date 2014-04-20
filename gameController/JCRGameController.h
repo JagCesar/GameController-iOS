@@ -36,4 +36,18 @@ typedef void (^JCRGameControllerDirectionPadBlock)(GCControllerDirectionPad *dpa
 @property (copy) JCRGameControllerDirectionPadBlock leftThumbstickBlock;
 @property (copy) JCRGameControllerDirectionPadBlock rightThumbstickBlock;
 
+- (void)setAButtonBlock:(JCRGameControllerButtonBlock)aButtonBlock;
+- (void)setBButtonBlock:(JCRGameControllerButtonBlock)bButtonBlock;
+- (void)setXButtonBlock:(JCRGameControllerButtonBlock)xButtonBlock;
+- (void)setYButtonBlock:(JCRGameControllerButtonBlock)yButtonBlock;
+
+- (void)setLeftShoulderButtonBlock:(JCRGameControllerButtonBlock)leftShoulderButtonBlock;
+- (void)setRightShoulderButtonBlock:(JCRGameControllerButtonBlock)rightShoulderButtonBlock;
+- (void)setLeftTriggerButtonBlock:(JCRGameControllerButtonBlock)leftTriggerButtonBlock;
+- (void)setRightTriggerButtonBlock:(JCRGameControllerButtonBlock)rightTriggerButtonBlock;
+
+- (void)setDPadBlock:(JCRGameControllerDirectionPadBlock)dPadBlock;
+- (void)setLeftThumbstickBlock:(JCRGameControllerDirectionPadBlock)leftThumbstickBlock;
+- (void)setRightThumbstickBlock:(JCRGameControllerDirectionPadBlock)rightThumbstickBlock;
+
 @end
