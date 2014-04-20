@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB0284A81903AD900042D08C /* JCRGameController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB0284A71903AD900042D08C /* JCRGameController.m */; };
 		DB7A0F901901D04A00D8901B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB7A0F8F1901D04A00D8901B /* Foundation.framework */; };
 		DB7A0F921901D04A00D8901B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB7A0F911901D04A00D8901B /* CoreGraphics.framework */; };
 		DB7A0F941901D04A00D8901B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB7A0F931901D04A00D8901B /* UIKit.framework */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DB0284A61903AD900042D08C /* JCRGameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCRGameController.h; sourceTree = "<group>"; };
+		DB0284A71903AD900042D08C /* JCRGameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCRGameController.m; sourceTree = "<group>"; };
 		DB7A0F8C1901D04A00D8901B /* gameController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gameController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB7A0F8F1901D04A00D8901B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DB7A0F911901D04A00D8901B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -87,6 +90,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DB0284A51903AD700042D08C /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				DB0284A61903AD900042D08C /* JCRGameController.h */,
+				DB0284A71903AD900042D08C /* JCRGameController.m */,
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
 		DB7A0F831901D04A00D8901B = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +134,7 @@
 		DB7A0F951901D04A00D8901B /* gameController */ = {
 			isa = PBXGroup;
 			children = (
+				DB0284A51903AD700042D08C /* Objects */,
 				DB7A0FCB1901D17400D8901B /* ViewControllers */,
 				DB7A0F9E1901D04A00D8901B /* JCRAppDelegate.h */,
 				DB7A0F9F1901D04A00D8901B /* JCRAppDelegate.m */,
@@ -275,6 +288,7 @@
 				DB7A0FA91901D04A00D8901B /* JCRViewController.m in Sources */,
 				DB7A0FCE1901D19D00D8901B /* JCRWelcomeViewController.m in Sources */,
 				DB7A0FD11901D77700D8901B /* JCRGameControllerConnectedViewController.m in Sources */,
+				DB0284A81903AD900042D08C /* JCRGameController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,6 +487,7 @@
 				DB7A0FC31901D04A00D8901B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DB7A0FC41901D04A00D8901B /* Build configuration list for PBXNativeTarget "gameControllerTests" */ = {
 			isa = XCConfigurationList;
@@ -481,6 +496,7 @@
 				DB7A0FC61901D04A00D8901B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
