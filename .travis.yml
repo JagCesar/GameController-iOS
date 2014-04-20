@@ -1,8 +1,8 @@
 language: objective-c
 
 before_install:
-    brew update
-    brew upgrade xctool
+  - brew update
+  - brew upgrade xctool
 
 xcode_project: gameController.xcodeproj
 xcode_scheme: gameController
