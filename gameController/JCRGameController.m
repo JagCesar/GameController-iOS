@@ -20,6 +20,11 @@
 #pragma mark - Public properties
 
 - (void)setController:(GCController *)controller {
+    if (_controller == controller) {
+        return;
+    }
+    
+    _controller = controller;
     
     [[self controller] setControllerPausedHandler:^(GCController *controller) {
     }];
