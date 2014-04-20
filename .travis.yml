@@ -1,0 +1,5 @@
+language: objective-c
+
+xcode_project: gameController.xcodeproj
+xcode_scheme: gameController
+xcode_sdk: iphonesimulator
