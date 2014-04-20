@@ -66,28 +66,61 @@
     GCControllerDirectionPad *rightThumbstick = [[self extendedGamepad] rightThumbstick];
     
     [a setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
+        if ([self aButtonBlock]) {
+            self.aButtonBlock(button, value, pressed);
+        }
     }];
     [b setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
+        if ([self bButtonBlock]) {
+            self.bButtonBlock(button, value, pressed);
+        }
     }];
     [x setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
+        if ([self xButtonBlock]) {
+            self.xButtonBlock(button, value, pressed);
+        }
     }];
     [y setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
+        if ([self yButtonBlock]) {
+            self.yButtonBlock(button, value, pressed);
+        }
     }];
     [leftShoulder setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
+        if ([self leftShoulderButtonBlock]) {
+            self.leftShoulderButtonBlock(button,value,pressed);
+        }
     }];
     [leftTrigger setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
+        if ([self leftTriggerButtonBlock]) {
+            self.leftTriggerButtonBlock(button,value,pressed);
+        }
     }];
     [rightShoulder setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
+        if ([self rightShoulderButtonBlock]) {
+            self.rightShoulderButtonBlock(button,value,pressed);
+        }
     }];
     [rightTrigger setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
+        if ([self rightTriggerButtonBlock]) {
+            self.rightTriggerButtonBlock(button,value,pressed);
+        }
     }];
     
     // DPad and sticks
     [dPad setValueChangedHandler:^(GCControllerDirectionPad *dpad, float xValue, float yValue){
+        if ([self dPadBlock]) {
+            self.dPadBlock(dpad,xValue,yValue);
+        }
     }];
     [leftThumbstick setValueChangedHandler:^(GCControllerDirectionPad *dpad, float xValue, float yValue){
+        if ([self leftThumbstickBlock]) {
+            self.leftThumbstickBlock(dpad,xValue,yValue);
+        }
     }];
     [rightThumbstick setValueChangedHandler:^(GCControllerDirectionPad *dpad, float xValue, float yValue){
+        if ([self rightThumbstickBlock]) {
+            self.rightThumbstickBlock(dpad,xValue,yValue);
+        }
     }];
 }
 
@@ -103,20 +136,41 @@
     GCControllerDirectionPad *dPad = [[self gamepad] dpad];
     
     [a setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
+        if ([self aButtonBlock]) {
+            self.aButtonBlock(button, value, pressed);
+        }
     }];
     [b setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
+        if ([self bButtonBlock]) {
+            self.bButtonBlock(button, value, pressed);
+        }
     }];
     [x setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
+        if ([self xButtonBlock]) {
+            self.xButtonBlock(button, value, pressed);
+        }
     }];
     [y setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
+        if ([self yButtonBlock]) {
+            self.yButtonBlock(button, value, pressed);
+        }
     }];
     [leftShoulder setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
+        if ([self leftShoulderButtonBlock]) {
+            self.leftShoulderButtonBlock(button,value,pressed);
+        }
     }];
     [rightShoulder setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
+        if ([self rightShoulderButtonBlock]) {
+            self.rightShoulderButtonBlock(button,value,pressed);
+        }
     }];
     
     // DPad and sticks
     [dPad setValueChangedHandler:^(GCControllerDirectionPad *dpad, float xValue, float yValue){
+        if ([self dPadBlock]) {
+            self.dPadBlock(dpad,xValue,yValue);
+        }
     }];
 }
 
