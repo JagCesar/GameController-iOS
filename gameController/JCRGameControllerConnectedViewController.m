@@ -7,9 +7,12 @@
 //
 
 #import "JCRGameControllerConnectedViewController.h"
+#import "JCRGameController.h"
 
 @interface JCRGameControllerConnectedViewController ()
+
 @property (nonatomic) UITextView *textView;
+@property (nonatomic) JCRGameController *gameController;
 
 @end
 
@@ -41,6 +44,17 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Properties
+
+- (void)setController:(GCController *)controller {
+    if (_controller != controller) {
+        _controller = controller;
+        
+        [self setGameController:[JCRGameController new]];
+        [[self gameController] setController:[self controller]];
+    }
 }
 
 #pragma mark - Private functions
