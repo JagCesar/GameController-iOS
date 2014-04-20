@@ -8,8 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger, JCRGamepadType) {
+    JCRGamepadTypeSimple,
+    JCRGamepadTypeExtended,
+    JCRGamepadTypeNA
+};
+
 @interface JCRGameController : NSObject
 
 @property (nonatomic,strong) GCController *controller;
+@property (nonatomic) JCRGamepadType gamePadType;
 
 @end

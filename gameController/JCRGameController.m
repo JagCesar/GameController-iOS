@@ -33,6 +33,16 @@
     }
 }
 
+- (JCRGamepadType)gamePadType {
+    if ([[self controller] extendedGamepad]) {
+        return JCRGamepadTypeExtended;
+    } else if ([[self controller] gamepad]) {
+        return JCRGamepadTypeSimple;
+    } else {
+        return JCRGamepadTypeNA;
+    }
+}
+
 #pragma mark - Private functions
 
 - (void)__setupExtendedGamepad {
