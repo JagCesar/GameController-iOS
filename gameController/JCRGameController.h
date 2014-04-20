@@ -10,4 +10,6 @@
 
 @interface JCRGameController : NSObject
 
+@property (nonatomic,strong) GCController *controller;
+
 @end

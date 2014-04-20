@@ -9,9 +9,6 @@
 #import "JCRGameControllerConnectedViewController.h"
 
 @interface JCRGameControllerConnectedViewController ()
-
-@property (nonatomic) GCGamepad *gamepad;
-@property (nonatomic) GCExtendedGamepad *extendedGamepad;
 @property (nonatomic) UITextView *textView;
 
 @end
@@ -46,28 +43,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Public properties
-
-- (void)setController:(GCController *)controller {
-    [self __logMessage:@"Controller set"];
-    
-    __weak typeof(self) weakSelf = self;
-    [[self controller] setControllerPausedHandler:^(GCController *controller) {
-        __strong typeof(self) strongSelf = weakSelf;
-        [strongSelf __logMessage:@"Pause!"];
-    }];
-    
-    if ([controller extendedGamepad]) {
-        [self __logMessage:@"It was an extended gamepad"];
-        [self setExtendedGamepad:[controller extendedGamepad]];
-        [self __setupExtendedGamepad];
-    } else if ([controller gamepad]) {
-        [self __logMessage:@"It was a gamepad"];
-        [self setGamepad:[controller gamepad]];
-        [self __setupGamepad];
-    }
-}
-
 #pragma mark - Private functions
 
 - (void)__logMessage:(NSString*)message {
@@ -75,116 +50,6 @@
         [[self textView] setText:[NSString stringWithFormat:@"%@\n%@", [[self textView] text], message]];
         [[self textView] scrollRangeToVisible:NSMakeRange([[[self textView] text] length]-1, 1)];
     });
-}
-
-- (void)__setupExtendedGamepad {
-    [self __logMessage:@"Setup extended gamepad"];
-    
-    GCControllerButtonInput *a = [[self extendedGamepad] buttonA];
-    GCControllerButtonInput *b = [[self extendedGamepad] buttonB];
-    GCControllerButtonInput *x = [[self extendedGamepad] buttonX];
-    GCControllerButtonInput *y = [[self extendedGamepad] buttonY];
-    GCControllerButtonInput *leftShoulder = [[self extendedGamepad] leftShoulder];
-    GCControllerButtonInput *leftTrigger = [[self extendedGamepad] leftTrigger];
-    GCControllerButtonInput *rightShoulder = [[self extendedGamepad] rightShoulder];
-    GCControllerButtonInput *rightTrigger = [[self extendedGamepad] rightTrigger];
-    
-    GCControllerDirectionPad *dPad = [[self extendedGamepad] dpad];
-    GCControllerDirectionPad *leftThumbstick = [[self extendedGamepad] leftThumbstick];
-    GCControllerDirectionPad *rightThumbstick = [[self extendedGamepad] rightThumbstick];
-    
-    __weak typeof(self) weakSelf = self;
-    [a setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
-        __strong typeof(self) strongSelf = weakSelf;
-        [strongSelf __logMessage:[NSString stringWithFormat:@"A - %f", value]];
-    }];
-    [b setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
-        __strong typeof(self) strongSelf = weakSelf;
-        [strongSelf __logMessage:[NSString stringWithFormat:@"B - %f", value]];
-    }];
-    [x setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
-        __strong typeof(self) strongSelf = weakSelf;
-        [strongSelf __logMessage:[NSString stringWithFormat:@"X - %f", value]];
-    }];
-    [y setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
-        __strong typeof(self) strongSelf = weakSelf;
-        [strongSelf __logMessage:[NSString stringWithFormat:@"Y - %f", value]];
-    }];
-    [leftShoulder setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
-        __strong typeof(self) strongSelf = weakSelf;
-        [strongSelf __logMessage:[NSString stringWithFormat:@"left shoulder - %f", value]];
-    }];
-    [leftTrigger setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
-        __strong typeof(self) strongSelf = weakSelf;
-        [strongSelf __logMessage:[NSString stringWithFormat:@"left trigger - %f", value]];
-    }];
-    [rightShoulder setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
-        __strong typeof(self) strongSelf = weakSelf;
-        [strongSelf __logMessage:[NSString stringWithFormat:@"right shoulder - %f", value]];
-    }];
-    [rightTrigger setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
-        __strong typeof(self) strongSelf = weakSelf;
-        [strongSelf __logMessage:[NSString stringWithFormat:@"right trigger - %f", value]];
-    }];
-    
-    // DPad and sticks
-    [dPad setValueChangedHandler:^(GCControllerDirectionPad *dpad, float xValue, float yValue){
-        __strong typeof(self) strongSelf = weakSelf;
-        [strongSelf __logMessage:[NSString stringWithFormat:@"X: %f | Y: %f", xValue, yValue]];
-    }];
-    [leftThumbstick setValueChangedHandler:^(GCControllerDirectionPad *dpad, float xValue, float yValue){
-        __strong typeof(self) strongSelf = weakSelf;
-        [strongSelf __logMessage:[NSString stringWithFormat:@"X: %f | Y: %f", xValue, yValue]];
-    }];
-    [rightThumbstick setValueChangedHandler:^(GCControllerDirectionPad *dpad, float xValue, float yValue){
-        __strong typeof(self) strongSelf = weakSelf;
-        [strongSelf __logMessage:[NSString stringWithFormat:@"X: %f | Y: %f", xValue, yValue]];
-    }];
-}
-
-- (void)__setupGamepad {
-    [self __logMessage:@"Setup extended gamepad"];
-    
-    GCControllerButtonInput *a = [[self gamepad] buttonA];
-    GCControllerButtonInput *b = [[self gamepad] buttonB];
-    GCControllerButtonInput *x = [[self gamepad] buttonX];
-    GCControllerButtonInput *y = [[self gamepad] buttonY];
-    GCControllerButtonInput *leftShoulder = [[self gamepad] leftShoulder];
-    GCControllerButtonInput *rightShoulder = [[self gamepad] rightShoulder];
-    
-    GCControllerDirectionPad *dPad = [[self gamepad] dpad];
-    
-    __weak typeof(self) weakSelf = self;
-    [a setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
-        __strong typeof(self) strongSelf = weakSelf;
-        [strongSelf __logMessage:[NSString stringWithFormat:@"A - %f", value]];
-    }];
-    [b setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
-        __strong typeof(self) strongSelf = weakSelf;
-        [strongSelf __logMessage:[NSString stringWithFormat:@"B - %f", value]];
-    }];
-    [x setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
-        __strong typeof(self) strongSelf = weakSelf;
-        [strongSelf __logMessage:[NSString stringWithFormat:@"X - %f", value]];
-    }];
-    [y setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
-        __strong typeof(self) strongSelf = weakSelf;
-        [strongSelf __logMessage:[NSString stringWithFormat:@"Y - %f", value]];
-    }];
-    [leftShoulder setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
-        __strong typeof(self) strongSelf = weakSelf;
-        [strongSelf __logMessage:[NSString stringWithFormat:@"left shoulder - %f", value]];
-    }];
-    [rightShoulder setValueChangedHandler:^(GCControllerButtonInput *button, float value, BOOL pressed){
-        __strong typeof(self) strongSelf = weakSelf;
-        [strongSelf __logMessage:[NSString stringWithFormat:@"right shoulder - %f", value]];
-    }];
-    
-    // DPad and sticks
-    [dPad setValueChangedHandler:^(GCControllerDirectionPad *dpad, float xValue, float yValue){
-        __strong typeof(self) strongSelf = weakSelf;
-        [strongSelf __logMessage:[NSString stringWithFormat:@"X: %f | Y: %f", xValue, yValue]];
-    }];
 }
 
 @end
