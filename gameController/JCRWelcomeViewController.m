@@ -60,14 +60,16 @@
 #pragma mark - Private functions
 
 - (void)__gameControllerConnected:(NSNotification*)notification {
-    GCController *controller = [notification object];
-    [self setGameControllerConnectedViewController:[JCRGameControllerConnectedViewController new]];
-    [[self gameControllerConnectedViewController] setController:controller];
-    [self presentViewController:[self gameControllerConnectedViewController]
-                       animated:YES
-                     completion:^{
-                         ;
-                     }];
+    if (![self gameControllerConnectedViewController]) {
+        GCController *controller = [notification object];
+        [self setGameControllerConnectedViewController:[JCRGameControllerConnectedViewController new]];
+        [[self gameControllerConnectedViewController] setController:controller];
+        [self presentViewController:[self gameControllerConnectedViewController]
+                           animated:YES
+                         completion:^{
+                             ;
+                         }];
+    }
 }
 
 - (void)__gameControllerDisconnected:(NSNotification*)notification {

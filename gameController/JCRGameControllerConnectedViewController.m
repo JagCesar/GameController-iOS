@@ -54,6 +54,10 @@
         
         [self setGameController:[JCRGameController new]];
         [[self gameController] setController:[self controller]];
+        
+        [[self gameController] setAButtonBlock:^(GCControllerButtonInput *button, float value, BOOL pressed) {
+            [self __logMessage:@"test"];
+        }];
     }
 }
 
