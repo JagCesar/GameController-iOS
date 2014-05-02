@@ -7,6 +7,7 @@
 //
 
 #import "JCRGameControllerManager.h"
+#import "JCRGameController.h"
 
 @implementation JCRGameControllerManager
 
@@ -33,8 +34,10 @@
 
 - (void)__gameControllerConnected:(NSNotification*)notification {
     if ([[self delegate] respondsToSelector:@selector(gameControllerManager:gameControllerConnected:)]) {
+        JCRGameController *gameController = [JCRGameController new];
+        [gameController setController:[notification object]];
         [[self delegate] gameControllerManager:self
-                       gameControllerConnected:[notification object]];
+                       gameControllerConnected:gameController];
     }
 }
 
