@@ -7,7 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+@class JCRGameControllerManager;
+@class JCRGameController;
+
+@protocol JCRGameControllerManagerDelegate <NSObject>
+
+@required
+- (void)gameControllerManager:(JCRGameControllerManager*)manager gameControllerConnected:(JCRGameController*)gameController;
+- (void)gameControllerManager:(JCRGameControllerManager*)manager gameControllerDisconnected:(JCRGameController*)gameController;
+
+@end
 
 @interface JCRGameControllerManager : NSObject
+
+@property (nonatomic,assign) id <JCRGameControllerManagerDelegate> delegate;
 
 @end
