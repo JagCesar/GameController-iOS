@@ -16,12 +16,12 @@
     dispatch_once(&onceToken, ^{
         sharedInstance = [JCRGameControllerManager new];
         
-        [[NSNotificationCenter defaultCenter] addObserver:self
+        [[NSNotificationCenter defaultCenter] addObserver:sharedInstance
                                                  selector:@selector(__gameControllerConnected:)
                                                      name:GCControllerDidConnectNotification
                                                    object:nil];
         
-        [[NSNotificationCenter defaultCenter] addObserver:self
+        [[NSNotificationCenter defaultCenter] addObserver:sharedInstance
                                                  selector:@selector(__gameControllerDisconnected:)
                                                      name:GCControllerDidDisconnectNotification
                                                    object:nil];
