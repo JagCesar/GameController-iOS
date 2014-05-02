@@ -7,7 +7,7 @@
 //
 
 #import "JCRAppDelegate.h"
-#import "JCRWelcomeViewController.h"
+#import "JCRGameControllerConnectedViewController.h"
 
 @implementation JCRAppDelegate
 
@@ -17,8 +17,8 @@
     [self setWindow:[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]]];
     [[self window] setTintColor:[UIColor whiteColor]];
     
-    JCRWelcomeViewController *welcomeViewController = [JCRWelcomeViewController new];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:welcomeViewController];
+    JCRGameControllerConnectedViewController *gameControllerConnectedViewController = [JCRGameControllerConnectedViewController new];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:gameControllerConnectedViewController];
     self.window.rootViewController = navigationController;
     
     [self.window makeKeyAndVisible];

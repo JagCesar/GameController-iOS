@@ -22,7 +22,6 @@
 		DB7A0FBC1901D04A00D8901B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DB7A0FBA1901D04A00D8901B /* InfoPlist.strings */; };
 		DB7A0FBE1901D04A00D8901B /* gameControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7A0FBD1901D04A00D8901B /* gameControllerTests.m */; };
 		DB7A0FCA1901D16900D8901B /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB7A0FC91901D16900D8901B /* GameController.framework */; };
-		DB7A0FCE1901D19D00D8901B /* JCRWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7A0FCD1901D19D00D8901B /* JCRWelcomeViewController.m */; };
 		DB7A0FD11901D77700D8901B /* JCRGameControllerConnectedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7A0FD01901D77700D8901B /* JCRGameControllerConnectedViewController.m */; };
 		DBA224DC19141D79001A0F91 /* JCRGameControllerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DBA224DB19141D79001A0F91 /* JCRGameControllerManager.m */; };
 /* End PBXBuildFile section */
@@ -60,8 +59,6 @@
 		DB7A0FBD1901D04A00D8901B /* gameControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = gameControllerTests.m; sourceTree = "<group>"; };
 		DB7A0FC71901D05900D8901B /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		DB7A0FC91901D16900D8901B /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
-		DB7A0FCC1901D19D00D8901B /* JCRWelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCRWelcomeViewController.h; sourceTree = "<group>"; };
-		DB7A0FCD1901D19D00D8901B /* JCRWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCRWelcomeViewController.m; sourceTree = "<group>"; };
 		DB7A0FCF1901D77700D8901B /* JCRGameControllerConnectedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCRGameControllerConnectedViewController.h; sourceTree = "<group>"; };
 		DB7A0FD01901D77700D8901B /* JCRGameControllerConnectedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCRGameControllerConnectedViewController.m; sourceTree = "<group>"; };
 		DBA224DA19141D79001A0F91 /* JCRGameControllerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCRGameControllerManager.h; sourceTree = "<group>"; };
@@ -183,8 +180,6 @@
 		DB7A0FCB1901D17400D8901B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				DB7A0FCC1901D19D00D8901B /* JCRWelcomeViewController.h */,
-				DB7A0FCD1901D19D00D8901B /* JCRWelcomeViewController.m */,
 				DB7A0FCF1901D77700D8901B /* JCRGameControllerConnectedViewController.h */,
 				DB7A0FD01901D77700D8901B /* JCRGameControllerConnectedViewController.m */,
 			);
@@ -292,7 +287,6 @@
 				DB7A0F9C1901D04A00D8901B /* main.m in Sources */,
 				DB7A0FA91901D04A00D8901B /* JCRViewController.m in Sources */,
 				DBA224DC19141D79001A0F91 /* JCRGameControllerManager.m in Sources */,
-				DB7A0FCE1901D19D00D8901B /* JCRWelcomeViewController.m in Sources */,
 				DB7A0FD11901D77700D8901B /* JCRGameControllerConnectedViewController.m in Sources */,
 				DB0284A81903AD900042D08C /* JCRGameController.m in Sources */,
 			);
