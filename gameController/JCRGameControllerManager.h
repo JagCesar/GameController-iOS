@@ -22,4 +22,6 @@
 
 @property (nonatomic,assign) id <JCRGameControllerManagerDelegate> delegate;
 
++ (instancetype)sharedInstance;
+
 @end

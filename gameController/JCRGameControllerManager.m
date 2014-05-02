@@ -10,10 +10,12 @@
 
 @implementation JCRGameControllerManager
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
++ (instancetype)sharedInstance {
+    static dispatch_once_t onceToken;
+    static JCRGameControllerManager *sharedInstance;
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [JCRGameControllerManager new];
+        
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(__gameControllerConnected:)
                                                      name:GCControllerDidConnectNotification
@@ -23,8 +25,8 @@
                                                  selector:@selector(__gameControllerDisconnected:)
                                                      name:GCControllerDidDisconnectNotification
                                                    object:nil];
-    }
-    return self;
+    });
+    return sharedInstance;
 }
 
 #pragma mark - Private functions
