@@ -8,8 +8,9 @@
 
 #import "JCRWelcomeViewController.h"
 #import "JCRGameControllerConnectedViewController.h"
+#import "JCRGameControllerManager.h"
 
-@interface JCRWelcomeViewController ()
+@interface JCRWelcomeViewController () <JCRGameControllerManagerDelegate>
 
 @property (nonatomic,strong) JCRGameControllerConnectedViewController *gameControllerConnectedViewController;
 
@@ -32,15 +33,7 @@
         [instructionsLabel setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
         [[self view] addSubview:instructionsLabel];
         
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(__gameControllerConnected:)
-                                                     name:GCControllerDidConnectNotification
-                                                   object:nil];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(__gameControllerDisconnected:)
-                                                     name:GCControllerDidDisconnectNotification
-                                                   object:nil];
+        [[JCRGameControllerManager sharedInstance] setDelegate:self]; 
     }
     return self;
 }
@@ -57,13 +50,13 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Private functions
+#pragma mark - JCRGameControllerManagerDelegate
 
-- (void)__gameControllerConnected:(NSNotification*)notification {
+- (void)gameControllerManager:(JCRGameControllerManager *)manager
+      gameControllerConnected:(JCRGameController *)gameController {
     if (![self gameControllerConnectedViewController]) {
-        GCController *controller = [notification object];
         [self setGameControllerConnectedViewController:[JCRGameControllerConnectedViewController new]];
-        [[self gameControllerConnectedViewController] setController:controller];
+        [[self gameControllerConnectedViewController] setController:gameController];
         [self presentViewController:[self gameControllerConnectedViewController]
                            animated:YES
                          completion:^{
@@ -72,7 +65,8 @@
     }
 }
 
-- (void)__gameControllerDisconnected:(NSNotification*)notification {
+- (void)gameControllerManager:(JCRGameControllerManager *)manager
+   gameControllerDisconnected:(JCRGameController *)gameController {
     [[self gameControllerConnectedViewController] dismissViewControllerAnimated:YES
                                                                      completion:^{
                                                                          ;

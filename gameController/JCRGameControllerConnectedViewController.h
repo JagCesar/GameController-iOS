@@ -7,9 +7,10 @@
 //
 
 #import "JCRViewController.h"
+@class JCRGameController;
 
 @interface JCRGameControllerConnectedViewController : JCRViewController
 
-@property (nonatomic,strong) GCController *controller;
+@property (nonatomic,strong) JCRGameController *controller;
 
 @end

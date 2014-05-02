@@ -48,12 +48,9 @@
 
 #pragma mark - Properties
 
-- (void)setController:(GCController *)controller {
+- (void)setController:(JCRGameController *)controller {
     if (_controller != controller) {
         _controller = controller;
-        
-        [self setGameController:[JCRGameController new]];
-        [[self gameController] setController:[self controller]];
         
         [[self gameController] setAButtonBlock:^(GCControllerButtonInput *button, float value, BOOL pressed) {
             [self __logMessage:@"test"];
