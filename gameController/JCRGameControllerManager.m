@@ -30,12 +30,20 @@
     return sharedInstance;
 }
 
+- (NSArray *)connectedGameControllers {
+    return [GCController controllers];
+}
+
 #pragma mark - Private functions
 
 - (void)__gameControllerConnected:(NSNotification*)notification {
     if ([[self delegate] respondsToSelector:@selector(gameControllerManager:gameControllerConnected:)]) {
+        GCController *controller = [notification object];
+        if ([controller playerIndex] == -1) {
+            [controller setPlayerIndex:[[self connectedGameControllers] count]];
+        }
         JCRGameController *gameController = [JCRGameController new];
-        [gameController setController:[notification object]];
+        [gameController setController:controller];
         [[self delegate] gameControllerManager:self
                        gameControllerConnected:gameController];
     }
