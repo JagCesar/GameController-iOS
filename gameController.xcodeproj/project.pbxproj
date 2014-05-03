@@ -14,7 +14,6 @@
 		DB7A0F9A1901D04A00D8901B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DB7A0F981901D04A00D8901B /* InfoPlist.strings */; };
 		DB7A0F9C1901D04A00D8901B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7A0F9B1901D04A00D8901B /* main.m */; };
 		DB7A0FA01901D04A00D8901B /* JCRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7A0F9F1901D04A00D8901B /* JCRAppDelegate.m */; };
-		DB7A0FA91901D04A00D8901B /* JCRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7A0FA81901D04A00D8901B /* JCRViewController.m */; };
 		DB7A0FAB1901D04A00D8901B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB7A0FAA1901D04A00D8901B /* Images.xcassets */; };
 		DB7A0FB21901D04A00D8901B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB7A0FB11901D04A00D8901B /* XCTest.framework */; };
 		DB7A0FB31901D04A00D8901B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB7A0F8F1901D04A00D8901B /* Foundation.framework */; };
@@ -49,8 +48,6 @@
 		DB7A0F9D1901D04A00D8901B /* gameController-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "gameController-Prefix.pch"; sourceTree = "<group>"; };
 		DB7A0F9E1901D04A00D8901B /* JCRAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCRAppDelegate.h; sourceTree = "<group>"; };
 		DB7A0F9F1901D04A00D8901B /* JCRAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCRAppDelegate.m; sourceTree = "<group>"; };
-		DB7A0FA71901D04A00D8901B /* JCRViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCRViewController.h; sourceTree = "<group>"; };
-		DB7A0FA81901D04A00D8901B /* JCRViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCRViewController.m; sourceTree = "<group>"; };
 		DB7A0FAA1901D04A00D8901B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DB7A0FB01901D04A00D8901B /* gameControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = gameControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB7A0FB11901D04A00D8901B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -140,8 +137,6 @@
 				DB7A0FCB1901D17400D8901B /* ViewControllers */,
 				DB7A0F9E1901D04A00D8901B /* JCRAppDelegate.h */,
 				DB7A0F9F1901D04A00D8901B /* JCRAppDelegate.m */,
-				DB7A0FA71901D04A00D8901B /* JCRViewController.h */,
-				DB7A0FA81901D04A00D8901B /* JCRViewController.m */,
 				DB7A0FAA1901D04A00D8901B /* Images.xcassets */,
 				DB7A0F961901D04A00D8901B /* Supporting Files */,
 			);
@@ -234,9 +229,6 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = JagCesar;
 				TargetAttributes = {
-					DB7A0F8B1901D04A00D8901B = {
-						DevelopmentTeam = UACPD8D292;
-					};
 					DB7A0FAF1901D04A00D8901B = {
 						TestTargetID = DB7A0F8B1901D04A00D8901B;
 					};
@@ -288,7 +280,6 @@
 			files = (
 				DB7A0FA01901D04A00D8901B /* JCRAppDelegate.m in Sources */,
 				DB7A0F9C1901D04A00D8901B /* main.m in Sources */,
-				DB7A0FA91901D04A00D8901B /* JCRViewController.m in Sources */,
 				DBA224DC19141D79001A0F91 /* JCRGameControllerManager.m in Sources */,
 				DB7A0FD11901D77700D8901B /* JCRGameControllerConnectedViewController.m in Sources */,
 				DB0284A81903AD900042D08C /* JCRGameController.m in Sources */,
@@ -365,7 +356,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -398,7 +389,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -414,7 +405,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "gameController/gameController-Prefix.pch";
 				INFOPLIST_FILE = "gameController/gameController-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -425,11 +415,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "gameController/gameController-Prefix.pch";
 				INFOPLIST_FILE = "gameController/gameController-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

@@ -6,9 +6,7 @@
 //  Copyright (c) 2014 JagCesar. All rights reserved.
 //
 
-#import "JCRViewController.h"
-@class JCRGameController;
 
-@interface JCRGameControllerConnectedViewController : JCRViewController
+@interface JCRGameControllerConnectedViewController : UIViewController
 
 @end
