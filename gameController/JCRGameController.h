@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <GameController/GameController.h>
 
 typedef NS_ENUM(NSInteger, JCRGamepadType) {
     JCRGamepadTypeSimple,
