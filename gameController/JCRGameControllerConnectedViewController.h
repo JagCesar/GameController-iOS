@@ -11,6 +11,4 @@
 
 @interface JCRGameControllerConnectedViewController : JCRViewController
 
-@property (nonatomic,strong) JCRGameController *controller;
-
 @end

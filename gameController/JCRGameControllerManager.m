@@ -50,9 +50,8 @@
 }
 
 - (void)__gameControllerDisconnected:(NSNotification*)notification {
-    if ([[self delegate] respondsToSelector:@selector(gameControllerManager:gameControllerDisconnected:)]) {
-        [[self delegate] gameControllerManager:self
-                    gameControllerDisconnected:[notification object]];
+    if ([[self delegate] respondsToSelector:@selector(gameControllerManagerGameControllerDisconnected:)]) {
+        [[self delegate] gameControllerManagerGameControllerDisconnected:self];
     }
 }
 

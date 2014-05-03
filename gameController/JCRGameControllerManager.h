@@ -14,7 +14,7 @@
 
 @required
 - (void)gameControllerManager:(JCRGameControllerManager*)manager gameControllerConnected:(JCRGameController*)gameController;
-- (void)gameControllerManager:(JCRGameControllerManager*)manager gameControllerDisconnected:(JCRGameController*)gameController;
+- (void)gameControllerManagerGameControllerDisconnected:(JCRGameControllerManager*)manager;
 
 @end
 

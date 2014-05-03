@@ -7,9 +7,10 @@
 //
 
 #import "JCRGameControllerConnectedViewController.h"
+#import "JCRGameControllerManager.h"
 #import "JCRGameController.h"
 
-@interface JCRGameControllerConnectedViewController ()
+@interface JCRGameControllerConnectedViewController () <JCRGameControllerManagerDelegate>
 
 @property (nonatomic) UITextView *textView;
 @property (nonatomic) JCRGameController *gameController;
@@ -30,6 +31,8 @@
         [[self textView] setFrame:[[self view] bounds]];
         [[self view] addSubview:[self textView]];
         [self __logMessage:@"TextView created"];
+        
+        [[JCRGameControllerManager sharedInstance] setDelegate:self];
     }
     return self;
 }
@@ -46,18 +49,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Properties
-
-- (void)setController:(JCRGameController *)controller {
-    if (_controller != controller) {
-        _controller = controller;
-        
-        [[self gameController] setAButtonBlock:^(GCControllerButtonInput *button, float value, BOOL pressed) {
-            [self __logMessage:@"test"];
-        }];
-    }
-}
-
 #pragma mark - Private functions
 
 - (void)__logMessage:(NSString*)message {
@@ -65,6 +56,21 @@
         [[self textView] setText:[NSString stringWithFormat:@"%@\n%@", [[self textView] text], message]];
         [[self textView] scrollRangeToVisible:NSMakeRange([[[self textView] text] length]-1, 1)];
     });
+}
+
+#pragma mark - JCRGameControllerManagerDelegate
+
+- (void)gameControllerManager:(JCRGameControllerManager *)manager
+      gameControllerConnected:(JCRGameController *)gameController {
+    [self __logMessage:[NSString stringWithFormat:@"+ Gamecontroller connected with index: %ld", (long)[[gameController controller] playerIndex]]];
+    
+    [[self gameController] setAButtonBlock:^(GCControllerButtonInput *button, float value, BOOL pressed) {
+        [self __logMessage:@"test"];
+    }];
+}
+
+- (void)gameControllerManagerGameControllerDisconnected:(JCRGameControllerManager *)manager {
+    [self __logMessage:@"- Gamecontroller disconnected with index: %ld"];
 }
 
 @end
