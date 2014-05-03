@@ -52,8 +52,7 @@
 
 - (void)__logMessage:(NSString*)message {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [[self textView] setText:[NSString stringWithFormat:@"%@\n%@", [[self textView] text], message]];
-        [[self textView] scrollRangeToVisible:NSMakeRange([[[self textView] text] length]-1, 1)];
+        [[self textView] setText:[NSString stringWithFormat:@"%@\n%@", message, [[self textView] text]]];
     });
 }
 
