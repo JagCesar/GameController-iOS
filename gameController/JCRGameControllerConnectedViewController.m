@@ -60,10 +60,56 @@
 
 - (void)gameControllerManager:(JCRGameControllerManager *)manager
       gameControllerConnected:(JCRGameController *)gameController {
-    [self __logMessage:[NSString stringWithFormat:@"+ Gamecontroller connected with index: %ld", (long)[[gameController controller] playerIndex]]];
+    
+    NSInteger playerIndex = [[gameController controller] playerIndex];
+    [self __logMessage:[NSString stringWithFormat:@"+ Gamecontroller connected with index: %ld", (long)playerIndex]];
+    
+    [gameController setPauseButtonBlock:^(GCController *controller) {
+        [self __logMessage:@"Pause!"];
+    }];
     
     [gameController setAButtonBlock:^(GCControllerButtonInput *button, float value, BOOL pressed) {
-        [self __logMessage:@"test"];
+        [self __logMessage:@"A"];
+    }];
+    
+    [gameController setBButtonBlock:^(GCControllerButtonInput *button, float value, BOOL pressed) {
+        [self __logMessage:@"B"];
+    }];
+    
+    [gameController setXButtonBlock:^(GCControllerButtonInput *button, float value, BOOL pressed) {
+        [self __logMessage:@"X"];
+    }];
+    
+    [gameController setYButtonBlock:^(GCControllerButtonInput *button, float value, BOOL pressed) {
+        [self __logMessage:@"Y"];
+    }];
+    
+    [gameController setLeftShoulderButtonBlock:^(GCControllerButtonInput *button, float value, BOOL pressed) {
+        [self __logMessage:@"Left shoulder"];
+    }];
+    
+    [gameController setRightShoulderButtonBlock:^(GCControllerButtonInput *button, float value, BOOL pressed) {
+        [self __logMessage:@"Right shoulder"];
+    }];
+    
+    [gameController setLeftTriggerButtonBlock:^(GCControllerButtonInput *button, float value, BOOL pressed) {
+        [self __logMessage:@"Left trigger"];
+    }];
+    
+    [gameController setRightTriggerButtonBlock:^(GCControllerButtonInput *button, float value, BOOL pressed) {
+        [self __logMessage:@"Right trigger"];
+    }];
+    
+    [gameController setLeftThumbstickBlock:^(GCControllerDirectionPad *dpad, float xValue, float yValue) {
+        [self __logMessage:[NSString stringWithFormat:@"Left Thumbstick -- X: %f || F: %f", xValue, yValue]];
+    }];
+    
+    [gameController setRightThumbstickBlock:^(GCControllerDirectionPad *dpad, float xValue, float yValue) {
+        [self __logMessage:[NSString stringWithFormat:@"Right Thumbstick -- X: %f || F: %f", xValue, yValue]];
+    }];
+    
+    [gameController setDPadBlock:^(GCControllerDirectionPad *dpad, float xValue, float yValue) {
+        [self __logMessage:[NSString stringWithFormat:@"Dpad -- X: %f || F: %f", xValue, yValue]];
     }];
 }
 
