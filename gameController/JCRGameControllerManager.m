@@ -40,7 +40,7 @@
     if ([[self delegate] respondsToSelector:@selector(gameControllerManager:gameControllerConnected:)]) {
         GCController *controller = [notification object];
         if ([controller playerIndex] == -1) {
-            [controller setPlayerIndex:[[self connectedGameControllers] count]];
+            [controller setPlayerIndex:[[self connectedGameControllers] count]-1];
         }
         JCRGameController *gameController = [JCRGameController new];
         [gameController setController:controller];
