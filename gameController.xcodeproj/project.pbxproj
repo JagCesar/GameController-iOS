@@ -19,7 +19,6 @@
 		DB7A0FB41901D04A00D8901B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB7A0F931901D04A00D8901B /* UIKit.framework */; };
 		DB7A0FBC1901D04A00D8901B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DB7A0FBA1901D04A00D8901B /* InfoPlist.strings */; };
 		DB7A0FBE1901D04A00D8901B /* gameControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7A0FBD1901D04A00D8901B /* gameControllerTests.m */; };
-		DB7A0FCA1901D16900D8901B /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB7A0FC91901D16900D8901B /* GameController.framework */; };
 		DB7A0FD11901D77700D8901B /* JCRGameControllerConnectedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7A0FD01901D77700D8901B /* JCRGameControllerConnectedViewController.m */; };
 		DBA224DC19141D79001A0F91 /* JCRGameControllerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DBA224DB19141D79001A0F91 /* JCRGameControllerManager.m */; };
 /* End PBXBuildFile section */
@@ -39,7 +38,6 @@
 		DB0284A71903AD900042D08C /* JCRGameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCRGameController.m; sourceTree = "<group>"; };
 		DB7A0F8C1901D04A00D8901B /* gameController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gameController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB7A0F8F1901D04A00D8901B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		DB7A0F911901D04A00D8901B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		DB7A0F931901D04A00D8901B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DB7A0F971901D04A00D8901B /* gameController-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "gameController-Info.plist"; sourceTree = "<group>"; };
 		DB7A0F991901D04A00D8901B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -53,7 +51,6 @@
 		DB7A0FB91901D04A00D8901B /* gameControllerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "gameControllerTests-Info.plist"; sourceTree = "<group>"; };
 		DB7A0FBB1901D04A00D8901B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DB7A0FBD1901D04A00D8901B /* gameControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = gameControllerTests.m; sourceTree = "<group>"; };
-		DB7A0FC71901D05900D8901B /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		DB7A0FC91901D16900D8901B /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
 		DB7A0FCF1901D77700D8901B /* JCRGameControllerConnectedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCRGameControllerConnectedViewController.h; sourceTree = "<group>"; };
 		DB7A0FD01901D77700D8901B /* JCRGameControllerConnectedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCRGameControllerConnectedViewController.m; sourceTree = "<group>"; };
@@ -66,7 +63,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB7A0FCA1901D16900D8901B /* GameController.framework in Frameworks */,
 				DB7A0F941901D04A00D8901B /* UIKit.framework in Frameworks */,
 				DB7A0F901901D04A00D8901B /* Foundation.framework in Frameworks */,
 			);
@@ -119,9 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				DB7A0FC91901D16900D8901B /* GameController.framework */,
-				DB7A0FC71901D05900D8901B /* GameKit.framework */,
 				DB7A0F8F1901D04A00D8901B /* Foundation.framework */,
-				DB7A0F911901D04A00D8901B /* CoreGraphics.framework */,
 				DB7A0F931901D04A00D8901B /* UIKit.framework */,
 				DB7A0FB11901D04A00D8901B /* XCTest.framework */,
 			);
