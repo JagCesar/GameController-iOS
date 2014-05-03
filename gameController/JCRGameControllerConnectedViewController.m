@@ -68,7 +68,7 @@
 }
 
 - (void)gameControllerManagerGameControllerDisconnected:(JCRGameControllerManager *)manager {
-    [self __logMessage:@"- Gamecontroller disconnected with index: %ld"];
+    [self __logMessage:@"- Gamecontroller disconnected"];
 }
 
 @end
