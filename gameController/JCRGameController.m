@@ -27,6 +27,9 @@
     _controller = controller;
     
     [[self controller] setControllerPausedHandler:^(GCController *controller) {
+        if ([self pauseButtonBlock]) {
+            self.pauseButtonBlock(controller);
+        }
     }];
     
     if ([controller extendedGamepad]) {

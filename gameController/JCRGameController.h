@@ -16,11 +16,14 @@ typedef NS_ENUM(NSInteger, JCRGamepadType) {
 
 @interface JCRGameController : NSObject
 
+typedef void (^JCRGameControllerPauseBlock)(GCController* controller);
 typedef void (^JCRGameControllerButtonBlock)(GCControllerButtonInput *button, float value, BOOL pressed);
 typedef void (^JCRGameControllerDirectionPadBlock)(GCControllerDirectionPad *dpad, float xValue, float yValue);
 
 @property (nonatomic,strong) GCController *controller;
 @property (nonatomic) JCRGamepadType gamePadType;
+
+@property (copy) JCRGameControllerPauseBlock pauseButtonBlock;
 
 @property (copy) JCRGameControllerButtonBlock aButtonBlock;
 @property (copy) JCRGameControllerButtonBlock bButtonBlock;
@@ -35,6 +38,11 @@ typedef void (^JCRGameControllerDirectionPadBlock)(GCControllerDirectionPad *dpa
 @property (copy) JCRGameControllerDirectionPadBlock dPadBlock;
 @property (copy) JCRGameControllerDirectionPadBlock leftThumbstickBlock;
 @property (copy) JCRGameControllerDirectionPadBlock rightThumbstickBlock;
+
+// The only reason we have these set-functions is because xCode isn't doing
+// proper auto completion on the above properties.
+
+- (void)setPauseButtonBlock:(JCRGameControllerPauseBlock)pauseButtonBlock;
 
 - (void)setAButtonBlock:(JCRGameControllerButtonBlock)aButtonBlock;
 - (void)setBButtonBlock:(JCRGameControllerButtonBlock)bButtonBlock;
