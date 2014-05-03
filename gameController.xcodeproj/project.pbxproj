@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		DB0284A81903AD900042D08C /* JCRGameController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB0284A71903AD900042D08C /* JCRGameController.m */; };
 		DB7A0F901901D04A00D8901B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB7A0F8F1901D04A00D8901B /* Foundation.framework */; };
-		DB7A0F921901D04A00D8901B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB7A0F911901D04A00D8901B /* CoreGraphics.framework */; };
 		DB7A0F941901D04A00D8901B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB7A0F931901D04A00D8901B /* UIKit.framework */; };
 		DB7A0F9A1901D04A00D8901B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DB7A0F981901D04A00D8901B /* InfoPlist.strings */; };
 		DB7A0F9C1901D04A00D8901B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DB7A0F9B1901D04A00D8901B /* main.m */; };
@@ -68,7 +67,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB7A0FCA1901D16900D8901B /* GameController.framework in Frameworks */,
-				DB7A0F921901D04A00D8901B /* CoreGraphics.framework in Frameworks */,
 				DB7A0F941901D04A00D8901B /* UIKit.framework in Frameworks */,
 				DB7A0F901901D04A00D8901B /* Foundation.framework in Frameworks */,
 			);
